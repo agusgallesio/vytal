@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vytal · Energía + Foco</title>
+<meta name="description" content="Escaneaste la lata. Descubrí qué hay adentro de Vytal: energía sostenida sin picos, más concentración y foco.">
+<meta name="theme-color" content="#F4EFE4">
+<meta property="og:title" content="Vytal · Energía + Foco. Tu mejor versión.">
+<meta property="og:description" content="Cafeína natural + L-teanina, vitamina B, ginseng. 0 azúcar, 0 calorías.">
+<meta property="og:image" content="assets/foto-estudio.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&amp;display=swap">
+<style>
+:root{
+  --ground:#F4EFE4; --paper:#FBF9F4; --sand:#E9E1CF; --mist:#E3EBC8;
+  --ink:#16180F; --ink-2:#4A5140; --ink-3:#555C4B;
+  --forest:#1E3A1F; --leaf:#3F6B1F; --lime:#9BCB2E; --lime-soft:#C9E07F;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:'Montserrat',system-ui,sans-serif;line-height:1.5;overflow-x:hidden}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--leaf)}
+:focus-visible{outline:2px solid var(--leaf);outline-offset:3px}
+.display{font-weight:600;letter-spacing:-.035em;line-height:1}
+.display em{font-style:italic;color:var(--leaf)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#2F5418}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:860px;padding:0 22px 40px;overflow:hidden;isolation:isolate}
+.nav{position:relative;z-index:5;height:72px;display:flex;align-items:center;justify-content:space-between}
+.nav img{height:32px;width:auto}
+.nav .tag{font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--ink-2)}
+.nav .links{display:none}
+.hero-bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.word{display:none}
+.disc{position:absolute;left:50%;top:400px;width:290px;height:290px;margin-left:-145px;border-radius:50%;background:var(--mist)}
+.orbit{position:absolute;left:50%;top:375px;width:340px;height:340px;margin-left:-170px;animation:spin 70s linear infinite}
+.swoosh{position:absolute;left:0;top:470px;width:100%;height:300px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 150px minmax(0,1fr);grid-template-areas:"title title title" "left can right";column-gap:4px;row-gap:26px;margin-top:8px}
+.title{grid-area:title}
+.title h1{margin:0;font-size:40px}
+.title p{margin:12px 0 0;max-width:290px;font-size:15px;color:var(--ink-3)}
+.can-wrap{grid-area:can;position:relative;display:flex;justify-content:center;align-items:center;padding-top:8px}
+.can{height:412px;width:auto;aspect-ratio:480/1318;animation:float 7s ease-in-out infinite;filter:drop-shadow(0 24px 30px rgba(40,50,20,.18));position:relative;z-index:2}
+.can-shadow{position:absolute;bottom:-4px;left:50%;width:130px;height:22px;margin-left:-65px;border-radius:50%;background:rgba(30,40,20,.35);filter:blur(10px);animation:shadow 7s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(-1deg)}}
+@keyframes shadow{0%,100%{transform:scaleX(1);opacity:.55}50%{transform:scaleX(.85);opacity:.35}}
+.side{display:flex;flex-direction:column;justify-content:space-between;min-height:400px}
+.side.l{grid-area:left;align-items:flex-start;padding:10px 0 20px}
+.side.r{grid-area:right;align-items:flex-end;padding:70px 0 0}
+.node{width:92px;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0;background:none;border:0;text-align:center}
+.dot{position:relative;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.75);color:#2F5418;border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 24px rgba(40,50,20,.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s,color .3s,transform .3s}
+.dot svg{width:26px;height:26px}
+.dot::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--lime);animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.55);opacity:0}}
+.node:hover .dot{transform:scale(1.06);background:var(--forest);color:var(--ground)}
+.txt b{display:block;font-size:11.5px;font-weight:600;line-height:1.25;text-wrap:balance}
+.txt small{display:none}
+.hint{display:block;margin:18px auto 0;text-align:center}
+.hint .eyebrow{display:block}
+.more{display:flex;flex-direction:column;align-items:center;margin-top:6px;text-decoration:none;color:var(--ink-3);min-height:44px;justify-content:center;font-size:17px;font-style:italic;font-weight:500}
+
+/* ---------- MOMENTOS ---------- */
+.moments{background:var(--paper);padding:64px 0}
+.moments .head{padding:0 22px;display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.moments h2{margin:0;font-size:32px}
+.moments .head p{margin:0;font-size:15px;color:var(--ink-3)}
+.moments .head p b{text-decoration:underline}
+.rail{display:flex;gap:14px;overflow-x:auto;padding:0 22px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.card{flex:0 0 270px;scroll-snap-align:start;display:flex;flex-direction:column;gap:14px;padding:0;background:none;border:0;text-align:left}
+.card .ph{position:relative;display:block;width:100%;aspect-ratio:270/290;border-radius:26px;overflow:hidden;background:var(--sand)}
+.card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.card:hover .ph img{transform:scale(1.04)}
+.card .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,20,8,.38) 0%,rgba(14,20,8,0) 38%,rgba(14,20,8,0) 62%,rgba(14,20,8,.55) 100%)}
+.card .n{position:absolute;left:18px;top:14px;z-index:1;font-size:36px;font-weight:600;line-height:1;color:#fff;letter-spacing:-.03em}
+.card b{display:block;font-size:19px;font-weight:600;line-height:1.15;letter-spacing:-.02em;padding:0 4px}
+.card small{display:block;font-size:13px;color:var(--ink-3);padding:0 4px;margin-top:4px}
+
+/* ---------- STRIP ---------- */
+.strip{background:var(--forest);color:var(--ground);padding:64px 22px;display:flex;flex-direction:column;gap:32px}
+.strip h2{margin:0;font-size:32px;color:#fff}
+.strip h2 em{color:var(--lime-soft)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;border-top:1px solid rgba(244,239,228,.2);padding-top:24px}
+.stats b{display:block;font-size:43px;font-weight:600;line-height:1;letter-spacing:-.03em}
+.stats span{display:block;margin-top:6px;font-size:12px;font-weight:600;letter-spacing:.06em;color:#D8DDC9}
+
+/* ---------- FOOTER ---------- */
+footer{padding:64px 22px 36px;display:flex;flex-direction:column;gap:20px}
+footer h2{margin:0;font-size:29px}
+footer .row,footer .cta-wrap{display:contents}
+.btn{height:56px;border-radius:999px;background:var(--forest);color:var(--ground);display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:600;text-decoration:none;transition:transform .3s,background .3s}
+.btn:hover{background:#2A4E2B;transform:translateY(-2px);color:var(--ground)}
+.btn svg{width:18px;height:18px}
+.ig{min-height:44px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;text-decoration:none}
+.legal{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:20px;padding-top:24px;border-top:1px solid #DDD6C6;font-size:12px;color:var(--ink-3)}
+.legal img{height:30px;width:auto}
+
+/* ---------- DIALOG ---------- */
+dialog{padding:0;border:0;background:var(--paper);color:var(--ink);overflow:hidden;max-width:none;max-height:none}
+dialog::backdrop{background:rgba(34,40,24,.3);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:fade .35s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+dialog[open]{display:grid;animation:rise .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes rise{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+/* mobile: bottom sheet */
+dialog{width:100%;margin:auto 0 0;height:min(700px,94svh);border-radius:32px 32px 0 0;grid-template-rows:210px 1fr;box-shadow:0 -20px 60px rgba(40,50,20,.16)}
+.d-photo{position:relative;background:var(--sand);overflow:hidden}
+.d-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.d-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,20,8,.4) 0%,rgba(14,20,8,0) 35%,rgba(14,20,8,0) 60%,rgba(14,20,8,.62) 100%)}
+.d-photo .num{position:absolute;left:22px;top:14px;z-index:1;font-size:56px;font-weight:600;font-style:italic;line-height:1;color:#fff;letter-spacing:-.04em}
+.d-photo .mom{position:absolute;left:22px;bottom:16px;z-index:1;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff}
+.d-info{display:flex;flex-direction:column;gap:14px;padding:20px 22px 24px;overflow-y:auto}
+.d-top{display:flex;align-items:center;justify-content:space-between}
+.x{width:44px;height:44px;border-radius:50%;border:1px solid #DDD6C6;background:#fff;display:flex;align-items:center;justify-content:center}
+.x svg{width:16px;height:16px}
+.d-info h2{margin:0;font-size:28px}
+.d-info .benefit{margin:0;font-size:19px;font-style:italic;font-weight:500;line-height:1.25;letter-spacing:-.01em;color:var(--leaf)}
+.d-info .body{margin:0;font-size:15px;color:var(--ink-2);line-height:1.6}
+.when{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.when small{font-size:10px;font-weight:700;letter-spacing:.2em;color:#6A7160}
+.when span{padding:7px 14px;border-radius:999px;background:var(--mist);color:var(--forest);font-size:13px;font-weight:600}
+.d-nav{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-top:6px}
+.d-nav button{height:52px;border-radius:999px;font-size:15px;font-weight:600}
+.d-nav .prev{border:1px solid #CFC7B5;background:none}
+.d-nav .next{border:0;background:var(--forest);color:var(--ground)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+
+/* ---------- TABLET ---------- */
+@media (min-width:700px){
+  dialog{width:min(1100px,92vw);height:min(640px,88vh);margin:auto;border-radius:32px;grid-template-rows:none;grid-template-columns:1fr 1fr;box-shadow:0 40px 100px rgba(40,50,20,.22)}
+  .d-info{padding:40px 48px 44px;gap:20px}
+  .d-info h2{font-size:clamp(34px,4.4vw,50px);margin-top:12px}
+  .d-info .benefit{font-size:clamp(20px,2.4vw,26px)}
+  .d-info .body{font-size:17px}
+  .d-photo .num{font-size:96px;left:40px;top:24px}
+  .d-photo .mom{left:40px;bottom:32px;font-size:12px}
+  .d-nav{display:flex;gap:12px}
+  .d-nav button{padding:0 30px}
+  .card{flex-basis:300px}
+}
+
+/* ---------- DESKTOP ---------- */
+@media (min-width:1000px){
+  .hero{min-height:900px;padding:0 clamp(40px,5.5vw,80px) 48px}
+  .nav{height:96px}
+  .nav img{height:46px}
+  .nav .tag{display:none}
+  .nav .links{display:flex;align-items:center;gap:32px}
+  .nav .links .t{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--ink-2)}
+  .nav .links a{font-size:15px;font-weight:600;text-decoration:none;min-height:44px;display:flex;align-items:center;color:var(--ink)}
+  .nav .links .cta{height:48px;padding:0 24px;border-radius:999px;background:var(--forest);color:var(--ground)}
+  .word{display:block;position:absolute;left:0;right:0;top:170px;text-align:center;font-size:clamp(260px,26vw,380px);line-height:.8;font-weight:600;font-style:italic;letter-spacing:-.05em;color:#EFE8D8}
+  .disc{top:170px;width:min(520px,40vw);height:min(520px,40vw);margin-left:calc(min(520px,40vw)/-2)}
+  .orbit{top:120px;width:min(640px,50vw);height:min(640px,50vw);margin-left:calc(min(640px,50vw)/-2)}
+  .swoosh{top:430px;height:420px}
+  .stage{grid-template-columns:1fr minmax(240px,300px) 1fr;grid-template-areas:"title can right" "left can right";column-gap:24px;row-gap:24px;margin-top:0}
+  .title h1{font-size:clamp(40px,4.3vw,62px);line-height:.98}
+  .title p{font-size:17px;max-width:330px;margin-top:20px}
+  .can-wrap{padding-top:0}
+  .can{height:clamp(520px,66vh,680px)}
+  .can-shadow{width:200px;margin-left:-100px;bottom:6px}
+  .side{min-height:0;justify-content:center;gap:28px}
+  .side.l{align-items:flex-end;align-self:start;padding:0;margin-top:20px}
+  .side.r{align-items:flex-start;padding:0;align-self:center}
+  .node{width:auto;max-width:310px;flex-direction:row;gap:16px;padding:10px 26px 10px 10px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);box-shadow:0 12px 30px rgba(40,50,20,.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);text-align:left;transition:transform .3s,box-shadow .3s,background .3s,color .3s}
+  .side.l .node{flex-direction:row-reverse;text-align:right;padding:10px 10px 10px 26px}
+  .side.l .node:nth-child(2){margin-right:56px}
+  .side.r .node:nth-child(2){margin-left:56px}
+  .side.r .node:nth-child(1){margin-left:18px}
+  .node:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(40,50,20,.16);background:var(--forest);color:var(--ground)}
+  .node:hover .dot{background:var(--lime-soft);color:var(--forest);transform:none}
+  .node:hover small{color:var(--lime-soft)}
+  .dot{width:60px;height:60px;background:var(--mist);border:0;box-shadow:none;flex-shrink:0}
+  .txt b{font-size:16px;text-wrap:wrap}
+  .txt small{display:block;margin-top:2px;font-size:15px;font-style:italic;font-weight:500;color:var(--leaf)}
+  .hint{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);margin:0;z-index:3}
+  .more{display:none}
+  .moments{padding:120px clamp(40px,5.5vw,80px)}
+  .moments .head{padding:0;flex-direction:row;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:56px}
+  .moments h2{font-size:clamp(48px,5.6vw,80px);line-height:.95}
+  .moments .head p{max-width:340px;font-size:17px}
+  .rail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;overflow:visible;padding:0}
+  .card{flex:none}
+  .card .ph{aspect-ratio:305/330;border-radius:28px}
+  .card .n{font-size:52px;left:24px;top:18px}
+  .card b{font-size:26px}
+  .card small{font-size:14px}
+  .strip{padding:110px clamp(40px,5.5vw,80px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:80px;align-items:end}
+  .strip h2{font-size:clamp(44px,5.2vw,74px);line-height:.98}
+  .stats b{font-size:clamp(64px,6.6vw,96px);line-height:.9}
+  .stats span{font-size:14px;margin-top:8px}
+  footer{padding:110px clamp(40px,5.5vw,80px) 48px;gap:0}
+  footer .cta-wrap{display:flex;flex-direction:column;gap:32px;align-items:flex-start}
+  footer h2{font-size:clamp(44px,5vw,72px);line-height:.95}
+  footer .row{display:flex;align-items:center;gap:24px}
+  .btn{height:58px;padding:0 30px;font-size:16px}
+  .ig{font-size:16px}
+  .legal{margin-top:64px;font-size:13px}
+  .legal img{height:42px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="inicio">
+  <div class="hero-bg" aria-hidden="true">
+    <span class="word display">foco</span>
+    <div class="disc"></div>
+    <svg class="orbit" viewBox="0 0 340 340" fill="none"><circle cx="170" cy="170" r="168" stroke="#B9C99A" stroke-width="1" stroke-dasharray="2 7"/><circle cx="170" cy="2" r="4" fill="#9BCB2E"/></svg>
+    <svg class="swoosh" viewBox="0 0 1440 420" preserveAspectRatio="none" fill="none"><path d="M-40 380 C 400 370, 900 250, 1480 30" stroke="#9BCB2E" stroke-width="40" stroke-linecap="round" opacity=".45"/><path d="M-40 415 C 480 405, 980 300, 1480 110" stroke="#C9E07F" stroke-width="12" stroke-linecap="round" opacity=".7"/></svg>
+  </div>
+
+  <nav class="nav" aria-label="Principal">
+    <img src="assets/logo.png" alt="Vytal" width="82" height="32">
+    <span class="tag">LIMA LIMÓN · 354 ML</span>
+    <div class="links">
+      <span class="t">LIMA LIMÓN · 354 ML</span>
+      <a href="#momentos">Momentos</a>
+      <a class="cta" href="#donde">Dónde conseguirla</a>
+    </div>
+  </nav>
+
+  <div class="stage">
+    <div class="title">
+      <h1 class="display">Energía + Foco<em>.<br>Tu Mejor Versión</em></h1>
+      <p>Escaneaste la lata. Ahora descubrí qué hay adentro.</p>
+    </div>
+
+    <div class="can-wrap">
+      <img class="can" src="assets/lata.webp" alt="Lata de Vytal Lima Limón, 354 ml" width="480" height="1318">
+      <span class="can-shadow" aria-hidden="true"></span>
+    </div>
+
+    <div class="side l">
+      <button class="node" data-i="0" aria-haspopup="dialog">
+        <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14z"/><path d="M5 19l8-8"/></svg></span>
+        <span class="txt"><b>Cafeína + L&#8209;teanina</b><small>01 · Ver beneficio</small></span>
+      </button>
+      <button class="node" data-i="2" aria-haspopup="dialog">
+        <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-1.3-1.9-3-3.5-3-6.2 0-2 1.3-3.4 3-3.4s3 1.4 3 3.4c0 2.7-1.7 4.3-3 6.2z"/><path d="M9.6 16.4L7 18"/><path d="M14.4 16.4L17 18"/><path d="M12 11.4V8"/><path d="M12 8.4C11 5.8 9 4.6 6.6 4.6c0 2.6 1.8 3.8 5.4 3.8z"/><path d="M12 8.4c1-2.6 3-3.8 5.4-3.8 0 2.6-1.8 3.8-5.4 3.8z"/></svg></span>
+        <span class="txt"><b>Ginseng</b><small>03 · Ver beneficio</small></span>
+      </button>
+    </div>
+
+    <div class="side r">
+      <button class="node" data-i="1" aria-haspopup="dialog">
+        <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M13 7.5l-3 4.5h4l-3 4.5"/></svg></span>
+        <span class="txt"><b>Vitamina B</b><small>02 · Ver beneficio</small></span>
+      </button>
+      <button class="node" data-i="3" aria-haspopup="dialog">
+        <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><ellipse cx="12" cy="12" rx="3" ry="4.6"/></svg></span>
+        <span class="txt"><b>0 azúcar, 0 calorías</b><small>04 · Ver beneficio</small></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span class="eyebrow">Tocá un ingrediente</span>
+    <a class="more" href="#momentos">Momentos Vytal<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+  </div>
+</header>
+
+<main>
+<section class="moments" id="momentos" aria-labelledby="mom-h">
+  <div class="head">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span class="eyebrow">Momentos Vytal</span>
+      <h2 class="display" id="mom-h">Para cuando<br><em>necesitás más.</em></h2>
+    </div>
+    <p>Cuatro momentos, un mismo objetivo: <b>energía, concentración y foco.</b></p>
+  </div>
+  <div class="rail" id="rail"></div>
+</section>
+
+<section class="strip" aria-labelledby="strip-h">
+  <h2 class="display" id="strip-h">Todo lo necesario para alcanzar<br><em>Tu Mejor Versión</em></h2>
+  <div class="stats">
+    <div><b class="display">0</b><span>g de azúcar</span></div>
+    <div><b class="display">0</b><span>calorías</span></div>
+    <div><b class="display">354</b><span>ml por lata</span></div>
+  </div>
+</section>
+</main>
+
+<footer id="donde">
+  <div class="cta-wrap">
+    <h2 class="display">¿Te quedaste<br><em>con ganas de otra?</em></h2>
+    <div class="row">
+      <a class="btn" href="#">Dónde conseguir Vytal<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="ig" href="https://www.instagram.com/vytal.arg" target="_blank" rel="noopener">Seguinos en @vytal.arg</a>
+    </div>
+  </div>
+  <div class="legal"><img src="assets/logo.png" alt="Vytal" width="77" height="30"><span>Industria Argentina</span></div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="d-name">
+  <div class="d-photo">
+    <img id="d-img" src="" alt="">
+    <span class="num" id="d-num" aria-hidden="true"></span>
+    <span class="mom" id="d-mom"></span>
+  </div>
+  <div class="d-info">
+    <div class="d-top">
+      <span class="eyebrow" id="d-count"></span>
+      <button class="x" id="d-close" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <h2 class="display" id="d-name"></h2>
+    <p class="benefit" id="d-benefit"></p>
+    <p class="body" id="d-body"></p>
+    <div class="when"><small>MOMENTO IDEAL</small><span id="d-when"></span></div>
+    <div class="d-nav">
+      <button class="prev" id="d-prev">Anterior</button>
+      <button class="next" id="d-next">Siguiente</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const ING = [
+  { num:'01', short:'cafeína + L-teanina', name:'Cafeína natural + L-teanina', benefit:'Energía estable, sin picos ni caídas.',
+    body:'Cafeína de origen natural, del extracto de té verde: se libera de forma más gradual que la sintética. La L-teanina modera el nerviosismo y atenúa el crash, para una energía que se siente pareja.',
+    moment:'Maratón de estudio', img:'assets/foto-estudio.jpg', pos:'80% 50%' },
+  { num:'02', short:'vitamina B', name:'Vitamina B', benefit:'Menos cansancio, energía todo el día.',
+    body:'Las vitaminas del complejo B actúan sobre el cansancio y la fatiga, reforzando la sensación de energía sostenida a lo largo del día.',
+    moment:'Jornada larga de trabajo', img:'assets/foto-trabajo.jpg', pos:'25% 50%' },
+  { num:'03', short:'ginseng', name:'Ginseng', benefit:'Concentración y foco mental.',
+    body:'El ginseng panax es un adaptógeno que favorece la concentración y el foco cognitivo: claridad para rendir en el estudio y en el trabajo.',
+    moment:'Retomar el foco', img:'assets/foto-tarde.jpg', pos:'65% 50%' },
+  { num:'04', short:'0 azúcar y 0 calorías', name:'0 azúcar, 0 calorías', benefit:'Toda la energía, sin azúcar.',
+    body:'Sin azúcar agregada, sin sodio y con 0 calorías. Endulzada con sucralosa. Una energía para tu día a día, sin sellos de advertencia en el envase.',
+    moment:'Después de entrenar', img:'assets/foto-entreno.jpg', pos:'50% 40%' }
+];
+const $ = id => document.getElementById(id);
+const dlg = $('dlg');
+let cur = 0;
+
+// tarjetas de momentos
+$('rail').innerHTML = ING.map((m,i)=>`
+  <button class="card" data-i="${i}" aria-haspopup="dialog">
+    <span class="ph"><img src="${m.img}" alt="${m.moment}" loading="lazy" style="object-position:${m.pos}"><span class="n">${m.num}</span></span>
+    <span><b>${m.moment}</b><small>Con ${m.short} · Ver beneficio</small></span>
+  </button>`).join('');
+
+function render(){
+  const m = ING[cur];
+  $('d-img').src = m.img; $('d-img').alt = m.moment; $('d-img').style.objectPosition = m.pos;
+  $('d-num').textContent = m.num; $('d-mom').textContent = m.moment;
+  $('d-count').textContent = `INGREDIENTE ${m.num} / 04`;
+  $('d-name').textContent = m.name; $('d-benefit').textContent = m.benefit;
+  $('d-body').textContent = m.body; $('d-when').textContent = m.moment;
+}
+function open(i){ cur = i; render(); if(!dlg.open) dlg.showModal(); }
+function step(d){ cur = (cur + d + ING.length) % ING.length; render(); }
+
+document.addEventListener('click', e=>{
+  const t = e.target.closest('[data-i]');
+  if(t){ open(+t.dataset.i); }
+});
+$('d-close').onclick = ()=>dlg.close();
+$('d-prev').onclick = ()=>step(-1);
+$('d-next').onclick = ()=>step(1);
+dlg.addEventListener('click', e=>{ if(e.target === dlg) dlg.close(); });
+dlg.addEventListener('keydown', e=>{
+  if(e.key==='ArrowRight') step(1);
+  if(e.key==='ArrowLeft') step(-1);
+});
+</script>
+</body>
+</html>
