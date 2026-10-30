@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Vytal — tokens de marca y de movimiento
+   Fuente: manual de marca Vytal (Identidad visual) + ficha de movimiento
+   aprobada en direccion-de-arte.html. No se copian de otro proyecto.
+   ========================================================================== */
+:root{
+  /* Color — igual a vytal.pages.dev (medido del sitio publicado) + manual de marca */
+  --brand:#A1BC1B;          /* verde lima del packaging: energía, frescura, vitalidad */
+  --brand-press:#8CA81A;    /* lima, más oscuro: hover de enlaces y piezas */
+  --brand-soft:#EEF3D2;     /* lima muy aclarado: fondo de íconos, halos */
+  --brand-on-dark:#C9E07F;  /* lima aclarado, el mismo verde de "Tu Mejor Versión" sobre fondo oscuro en vytal.pages.dev */
+  --cta:#1E3A1F;            /* verde oscuro: el color real del botón en vytal.pages.dev */
+  --cta-ink:#F4EFE4;        /* crema, la letra real del botón en vytal.pages.dev */
+  --cta-hover:#162B17;      /* un poco más oscuro */
+  --ink:#11120F;            /* negro principal: títulos y texto */
+  --bg:#F4EFE4;             /* crema clara: el fondo real de vytal.pages.dev */
+  --surface:#FBF9F4;        /* tarjetas: casi blanco, como en vytal.pages.dev */
+  --surface-sage:#E3EBC8;   /* verde salvia clara: alterna secciones, como en vytal.pages.dev */
+  --surface-2:#1E3A1F;      /* verde oscuro: secciones invertidas y footer, igual a vytal.pages.dev */
+  --surface-3:#404D2B;      /* verde oliva: acentos, botones secundarios */
+  --line:#E6DCC3;           /* línea sutil */
+  --muted:#5B5A4E;          /* texto secundario, pasa contraste sobre --bg */
+  --muted-on-dark:#C9CFC0;  /* texto secundario sobre --surface-2 */
+  --accent:#404D2B;         /* verde oliva: detalle, poco uso */
+  --error:#B3261E;
+
+  /* Tipografía — identidad (Montserrat: el mismo sustituto de Avenir que ya usa vytal.pages.dev) */
+  --font-display:"Montserrat",system-ui,sans-serif;
+  --font-body:"Montserrat",system-ui,sans-serif;
+  --font-accent:"Montserrat",system-ui,sans-serif;  /* cursiva de acento: Montserrat itálica, como "Tu Mejor Versión" en el sitio ya publicado */
+
+  /* Forma — derivada del isotipo (curvas orgánicas, una punta afilada) */
+  --r-xl:34px;
+  --r-lg:24px;
+  --r-md:16px;
+  --r-sm:10px;
+
+  /* Movimiento — ficha de movimiento aprobada (ver direccion-de-arte.html) */
+  --ease:cubic-bezier(.25,1,.5,1);        /* power3.out */
+  --ease-io:cubic-bezier(.65,0,.35,1);    /* power2.inOut */
+  --ease-pop:cubic-bezier(.34,1.44,.64,1);/* back.out(1.3) */
+  --dur:.95s;
+  --dist:30px;
+  --t-hover:.4s;
+
+  /* Espacio y ritmo */
+  --gutter:clamp(20px,5vw,64px);
+  --maxw:1240px;
+  --section-y:clamp(64px,9vw,128px);
+}

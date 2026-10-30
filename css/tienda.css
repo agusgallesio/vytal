@@ -1,0 +1,511 @@
+/* ==========================================================================
+   Vytal — capa de tienda. Se carga después de styles.css y solo agrega o
+   ajusta lo necesario para que el sitio funcione como ecommerce:
+   cabecera con barra de anuncio, compra como portada, packs, franja de
+   confianza, banner Vytal+, preguntas frecuentes, barra fija de compra,
+   botón de WhatsApp y carrito editable.
+   ========================================================================== */
+
+/* ---------- cabecera: anuncio + nav ---------- */
+:root{--anuncio-h:34px;--cabecera-h:94px}
+.cabecera{position:fixed;inset-inline:0;top:0;z-index:300}
+.cabecera .nav{position:relative;inset:auto;z-index:auto}
+.cabecera.is-scrolled .nav{background:rgba(244,239,228,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  padding-block:10px;box-shadow:0 1px 0 var(--line)}
+.anuncio{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:var(--anuncio-h);margin:0;border:0;
+  padding:0 16px;background:var(--v-verde);color:#F4EFE4;font:inherit;font-size:.76rem;font-weight:600;letter-spacing:.02em;
+  cursor:pointer;white-space:nowrap;overflow:hidden}
+.anuncio b{color:var(--v-lima);font-weight:800}
+.anuncio__sep{opacity:.5}
+.anuncio__cta{color:var(--v-lima);font-weight:700;text-decoration:underline;text-underline-offset:3px;margin-left:4px}
+@media (max-width:520px){ .anuncio__sep,.anuncio__envio{display:none} }
+.nav__links a[aria-current]::after{right:0}
+.menu-movil{padding-top:calc(var(--cabecera-h) + 36px)}
+@media (max-width:859px){ .nav__cuenta{display:none} }
+
+/* ---------- compra como portada ---------- */
+.compra--portada{padding-top:calc(var(--cabecera-h) + 4px)}
+.compra--portada .producto-compra__fondo{aspect-ratio:4/3}
+.compra--portada .panel-compra{padding-top:14px}
+@media (min-width:600px) and (max-width:1099px){ .compra--portada .producto-compra__fondo{aspect-ratio:16/9} }
+@media (min-width:1100px){
+  .pagina-tienda{--banda-h:104px}
+  .compra--portada{padding-top:calc(var(--cabecera-h) + 6px);padding-bottom:10px}
+  .compra--portada .producto-compra__fondo{aspect-ratio:auto}
+  .compra--portada .producto-compra__badge{top:calc(var(--cabecera-h) + 26px)}
+  /* la foto queda debajo, el panel encima pero deja pasar los clicks a las miniaturas */
+  .compra--portada .producto-compra__fondo{z-index:auto}
+  .compra--portada .producto-compra__miniaturas{z-index:5}
+  .compra--portada .compra__grid{pointer-events:none}
+  .compra--portada .panel-compra{pointer-events:auto}
+}
+@media (min-width:1100px) and (max-height:720px){
+  .pagina-tienda{--banda-h:88px}
+  .compra--portada{padding-top:calc(var(--cabecera-h) + 2px)}
+}
+
+.panel-compra .sabor{margin-bottom:8px}
+.panel-compra__titulo{font-weight:800}
+.panel-compra__sub em{font-family:var(--font-accent);font-style:italic;font-weight:700;color:var(--v-lima)}
+.panel-compra__desc{margin-bottom:16px}
+
+/* precio único + línea Vytal+ */
+.precio{margin:0 0 16px}
+.precio__monto{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin:0;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(1.9rem,3vw,2.4rem);line-height:1.05;color:var(--v-verde)}
+.precio__monto small{font-family:var(--font-body);font-size:.8rem;font-weight:600;color:var(--v-oliva)}
+.precio .precio-sin-impuestos{margin:5px 0 12px}
+.precio__vytalmas{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;border:1px dashed rgba(30,58,31,.45);background:var(--brand-soft);
+  border-radius:999px;padding:.45em 1.05em;font:inherit;font-size:.82rem;color:var(--v-verde);cursor:pointer;
+  transition:background-color var(--t-hover) var(--ease)}
+.precio__vytalmas:hover{background:#E4ECBF}
+.precio__vytalmas b{font-family:var(--font-display);font-weight:800}
+.precio__vytalmas span{font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+/* packs como tarjetas comparables */
+.packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 6px}
+.pack{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:1px;padding:11px 12px 10px;min-width:0;
+  border:1.5px solid var(--line);border-radius:var(--r-md);background:rgba(255,255,255,.6);font:inherit;color:var(--ink);text-align:left;
+  cursor:pointer;transition:border-color var(--t-hover) var(--ease),background-color var(--t-hover) var(--ease),box-shadow var(--t-hover) var(--ease)}
+.pack:hover{border-color:rgba(30,58,31,.55)}
+.pack.is-activa{border-color:var(--cta);background:#fff;box-shadow:0 0 0 1px var(--cta),0 12px 26px -16px rgba(30,58,31,.55)}
+.pack:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.pack__nombre{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--v-oliva)}
+.pack__latas{font-size:.76rem;color:var(--muted)}
+.pack__precio{font-family:var(--font-display);font-weight:800;font-size:1.06rem;margin-top:5px;color:var(--v-verde);white-space:nowrap}
+.pack__unit{font-size:.68rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.pack__ahorro{position:absolute;top:-9px;right:8px;background:var(--v-lima);color:var(--v-verde);font-size:.62rem;font-weight:800;
+  padding:.25em .7em;border-radius:999px;letter-spacing:.02em}
+.pack.is-activa::after{content:"";position:absolute;top:10px;right:10px;width:16px;height:16px;border-radius:50%;
+  background:var(--cta) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/10px no-repeat}
+.cantidad__ayuda{display:block;min-height:1.15em;margin:0 0 10px;font-size:.74rem;color:var(--muted)}
+@media (max-width:380px){ .pack{padding:10px 9px} .pack__precio{font-size:.95rem} }
+
+@media (min-width:1100px) and (max-height:860px){
+  .precio{margin-bottom:12px}
+  .precio .precio-sin-impuestos{margin:3px 0 8px}
+  .pack{padding:9px 11px 8px}
+  .pack__precio{margin-top:3px}
+}
+@media (min-width:1100px) and (max-height:720px){
+  .precio__monto{font-size:1.75rem}
+  .pack__latas{display:none}
+}
+
+/* ---------- franja de confianza ---------- */
+.franja{background:var(--v-verde);color:#F4EFE4;padding:20px var(--gutter)}
+.franja__lista{list-style:none;margin:0 auto;padding:0;max-width:var(--maxw);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
+.franja li{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;line-height:1.3}
+.franja li:last-child{grid-column:1/-1}
+.franja__icono{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(161,188,27,.7);color:var(--v-lima);
+  display:flex;align-items:center;justify-content:center;flex:none}
+.franja__icono svg{width:19px;height:19px}
+@media (min-width:760px){
+  .franja__lista{grid-template-columns:repeat(5,auto);justify-content:space-between}
+  .franja li:last-child{grid-column:auto}
+}
+@media (min-width:1100px){ .franja{height:var(--banda-h);display:flex;align-items:center;padding-block:0} .franja__lista{width:100%} }
+
+/* ---------- por qué Vytal ---------- */
+.beneficios__pie{margin:34px 0 0;display:flex;justify-content:center}
+
+/* ---------- banner Vytal+ ---------- */
+.club{padding:var(--section-y) var(--gutter);background:transparent}
+.club__caja{position:relative;max-width:var(--maxw);margin:0 auto;border-radius:var(--r-xl);background:var(--v-verde);color:#F4EFE4;
+  display:grid;gap:8px;align-items:center;padding:clamp(28px,5vw,60px);overflow:hidden}
+.club__caja::before{content:"";position:absolute;width:560px;height:560px;left:-140px;top:50%;margin-top:-280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(161,188,27,.28),rgba(161,188,27,0) 65%);pointer-events:none}
+.club__lata{position:relative;width:min(240px,62%);height:auto;margin:-10px auto 0;filter:drop-shadow(0 24px 30px rgba(0,0,0,.35))}
+.club__texto{position:relative}
+.club .kicker{color:var(--v-lima)}
+.club .h2{color:#F4EFE4}
+.club .h2 .acento{color:var(--v-lima)}
+.club .parrafo{color:var(--v-crema);margin-bottom:18px}
+.club__lista{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.club__lista li{font-size:.76rem;font-weight:600;padding:.45em 1em;border-radius:999px;border:1px solid rgba(228,220,202,.25);color:#F4EFE4}
+.club .btn--primary{background:var(--v-lima);color:var(--v-verde)}
+.club .btn--primary:hover{background:#B4CE2A}
+@media (min-width:860px){
+  .club__caja{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:40px}
+  .club__lata{width:min(280px,100%);margin:-20px auto -30px}
+}
+
+/* ---------- preguntas frecuentes ---------- */
+#faq{background:var(--v-blanco);border-top:1px solid rgba(64,77,43,.12)}
+.faq__cabecera{text-align:center;margin-inline:auto}
+.faq{max-width:820px;margin:0 auto;display:grid;gap:10px}
+.faq details{background:var(--v-crema-suave);border:1px solid var(--line);border-radius:var(--r-md);padding:0 22px;
+  transition:background-color var(--t-hover) var(--ease)}
+.faq details[open]{background:#fff}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;
+  font-family:var(--font-display);font-weight:700;font-size:.98rem;color:var(--v-verde)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:var(--brand-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23404D2B' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/14px no-repeat;
+  transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:6px}
+.faq details p{margin:0 0 20px;color:var(--v-oliva);font-size:.92rem;line-height:1.6;max-width:66ch}
+.faq a,.faq__mas a,.enlace{color:var(--v-verde);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.faq__mas{text-align:center;margin:20px 0 0;color:var(--v-oliva);font-size:.9rem}
+
+/* ---------- barra fija de compra (celular y tablet) ---------- */
+.barra-compra{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:250;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;padding:8px 8px 8px 18px;border-radius:999px;background:rgba(251,249,244,.97);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);box-shadow:0 16px 40px -12px rgba(17,18,15,.38);
+  transform:translateY(160%);transition:transform .45s var(--ease)}
+.barra-compra.is-visible{transform:none}
+.barra-compra__info{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+.barra-compra__info b{font-size:.84rem;color:var(--v-verde)}
+.barra-compra__info span{font-size:.76rem;color:var(--v-oliva);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.barra-compra .btn{padding:.85em 1.5em;flex:none}
+@media (min-width:1100px){ .barra-compra{display:none} }
+
+/* ---------- WhatsApp flotante ---------- */
+.wa-flotante{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:240;width:54px;height:54px;border-radius:50%;
+  background:var(--v-verde);color:var(--v-lima);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 28px -8px rgba(17,18,15,.45);transition:bottom .45s var(--ease),transform .2s var(--ease)}
+.wa-flotante:hover{transform:scale(1.06)}
+.wa-flotante svg{width:27px;height:27px}
+body.con-barra .wa-flotante{bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+
+/* ---------- carrito editable ---------- */
+.carrito-item{align-items:flex-start;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.carrito-item img{width:58px;height:58px;object-fit:cover;border-radius:10px;flex:none}
+.carrito-item__info{font-size:.84rem}
+.carrito-item__info span{display:block;color:var(--muted);font-size:.76rem;margin-top:2px}
+.carrito-item__acciones{display:flex;align-items:center;gap:8px;margin-top:8px}
+.carrito-item__acciones button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--bg);cursor:pointer;
+  font-size:1rem;line-height:1;color:var(--ink)}
+.carrito-item__acciones output{min-width:18px;text-align:center;font-weight:700}
+.carrito-item__acciones .carrito-item__quitar{width:auto;height:auto;border:0;background:none;border-radius:0;font-size:.74rem;
+  color:var(--muted);text-decoration:underline;text-underline-offset:2px;margin-left:6px}
+.carrito-item__precio{font-family:var(--font-display);font-weight:800;font-size:.92rem;white-space:nowrap}
+.carrito-total__fila--sub{font-weight:600;font-size:.8rem;color:var(--v-oliva);margin-bottom:6px}
+.carrito-total__nota{font-size:.74rem;color:var(--muted);text-align:center;margin:10px 0 6px}
+.carrito-total__seguir{display:block;text-align:center;font-size:.8rem;font-weight:700;color:var(--v-verde);text-decoration:underline;text-underline-offset:3px}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+
+/* ---------- páginas internas ---------- */
+.pagina-interna main > .seccion:first-child{padding-top:calc(var(--section-y) + var(--cabecera-h) - 10px)}
+.pagina-formula .portada__grid{padding-top:calc(var(--cabecera-h) + 40px)}
+@media (min-width:900px){ .pagina-formula .portada__grid{padding-top:calc(var(--cabecera-h) + 36px)} }
+.resena-cta{text-align:center;background:var(--v-blanco)!important;border-top:1px solid rgba(64,77,43,.12)}
+.resenas--centro{justify-content:center;margin-top:18px}
+.resenas--centro .resenas__estrella{width:32px;height:32px}
+.resenas--centro .resenas__cta{font-size:.92rem}
+
+/* retoques */
+@media (max-width:599px){ .pack.is-activa::after{top:auto;bottom:10px;width:14px;height:14px;background-size:9px} }
+.wa-flotante{box-shadow:0 0 0 2px rgba(161,188,27,.55),0 12px 28px -8px rgba(17,18,15,.45)}
+
+
+/* ---------- pack x4 único: etiqueta de cantidad ---------- */
+.cantidad__label{display:flex;align-items:baseline;gap:8px;margin:0 0 8px;font-size:.8rem;font-weight:700;color:var(--ink)}
+.cantidad__label .cantidad__ayuda{display:inline;min-height:0;margin:0;font-weight:500}
+
+/* ---------- La fórmula: Momentos con aire parejo arriba y abajo ---------- */
+.pagina-formula #momentos{padding-block:clamp(56px,7vw,96px)}
+.pagina-formula #momentos .seccion__cabecera{margin-bottom:clamp(28px,4vw,44px)}
+
+/* ---------- Ingredientes reales: el ingrediente se agranda al pasar el cursor ---------- */
+.ingrediente-foto{position:relative;transform-origin:50% 60%;
+  transition:transform .45s var(--ease-pop),box-shadow .45s var(--ease)}
+.ingrediente-foto img{transition:transform .6s var(--ease)}
+@media (hover:hover){
+  .ingredientes-reales__fila:hover .ingrediente-foto{opacity:.72}
+  .ingredientes-reales__fila .ingrediente-foto{transition:transform .45s var(--ease-pop),box-shadow .45s var(--ease),opacity .35s var(--ease)}
+  .ingredientes-reales__fila .ingrediente-foto:hover{opacity:1;z-index:3;transform:scale(1.14) translateY(-6px);
+    box-shadow:0 26px 48px -14px rgba(0,0,0,.6)}
+  .ingrediente-foto:hover img{transform:scale(1.08)}
+}
+.ingrediente-foto:focus-within{z-index:3}
+.ingredientes-reales{overflow:visible}
+
+/* ---------- Stats: 354 ml con el mismo tamaño que los demás sellos ---------- */
+.stats__icono--num .stats__num{font-family:var(--font-display);font-weight:800;font-size:1rem;letter-spacing:-.02em;line-height:1}
+.stats .stats__icono--num .stats__num{color:var(--v-lima)}
+
+/* ---------- Dónde comprar: filtros + mapa con puntos + listado ---------- */
+.filtros{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.filtro{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--v-blanco);border-radius:999px;
+  padding:.55em 1.05em;font:inherit;font-size:.82rem;font-weight:600;color:var(--ink);cursor:pointer;
+  transition:background-color var(--t-hover) var(--ease),border-color var(--t-hover) var(--ease),color var(--t-hover) var(--ease)}
+.filtro:hover{border-color:var(--v-verde)}
+.filtro span{font-size:.72rem;color:var(--muted);font-weight:700}
+.filtro.is-activo{background:var(--v-verde);border-color:var(--v-verde);color:#F4EFE4}
+.filtro.is-activo span{color:var(--v-lima)}
+.filtro__punto{width:10px;height:10px;border-radius:50%;flex:none;background:var(--v-oliva)}
+.filtro__punto--todos{background:linear-gradient(135deg,#A1BC1B 50%,#1C2E1C 50%)}
+.filtro__punto--dietetica{background:#A1BC1B}
+.filtro__punto--padel{background:#5A7830}
+.filtro__punto--gimnasio{background:#1C2E1C;box-shadow:0 0 0 1px rgba(244,239,228,.6)}
+.filtro__punto--universidad{background:#C9A227}
+
+.donde__grid--mapa{align-items:stretch}
+@media (min-width:900px){ .donde__grid--mapa{grid-template-columns:1.35fr 1fr} }
+.mapa--puntos{aspect-ratio:auto;height:clamp(360px,62svh,600px);position:relative;z-index:0}
+.mapa__lienzo{width:100%;height:100%;background:#EAE6DC}
+.mapa__lienzo iframe{width:100%;height:100%;border:0;display:block}
+.donde__lado{display:flex;flex-direction:column;min-height:0}
+@media (min-width:900px){ .donde__lado{height:clamp(360px,62svh,600px)} }
+.puntos-lista--scroll{flex:1;min-height:0;overflow-y:auto;padding-right:6px;overscroll-behavior:contain}
+@media (max-width:899px){ .puntos-lista--scroll{max-height:420px} }
+.puntos-lista--scroll::-webkit-scrollbar{width:6px}
+.puntos-lista--scroll::-webkit-scrollbar-thumb{background:rgba(64,77,43,.25);border-radius:6px}
+.puntos-lista--scroll .punto-venta{cursor:pointer;transition:border-color var(--t-hover) var(--ease),box-shadow var(--t-hover) var(--ease),transform .2s var(--ease)}
+.puntos-lista--scroll .punto-venta:hover{border-color:rgba(30,58,31,.4)}
+.puntos-lista--scroll .punto-venta.is-activo{border-color:var(--v-verde);box-shadow:0 0 0 1px var(--v-verde),0 12px 24px -16px rgba(30,58,31,.5)}
+.puntos-lista--scroll .punto-venta:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.punto-venta__icono{background:color-mix(in srgb,var(--c,#A1BC1B) 18%,#fff);color:var(--c,#8CA81A)}
+.punto-venta__tipo{display:block;font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--v-oliva);margin-bottom:2px}
+.punto-venta__link{display:inline-block;margin-top:6px;font-size:.76rem;font-weight:700;color:var(--v-verde);text-decoration:underline;text-underline-offset:3px}
+.donde__lado .donde__online{flex:none;margin-top:14px}
+
+/* marcadores y popup del mapa */
+.marcador{background:none;border:0}
+.marcador__pin{display:block;width:26px;height:26px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--c);
+  border:3px solid #fff;box-shadow:0 6px 14px -4px rgba(17,18,15,.55);margin-top:2px}
+.leaflet-marker-icon:hover .marcador__pin{filter:brightness(1.1)}
+.popup-vytal{display:flex;flex-direction:column;gap:3px;font-family:var(--font-body);min-width:190px}
+.popup-vytal__tipo{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--v-oliva)}
+.popup-vytal b{font-family:var(--font-display);font-size:.95rem;color:var(--v-verde)}
+.popup-vytal span{font-size:.78rem;color:var(--muted)}
+.popup-vytal a{margin-top:6px;font-size:.78rem;font-weight:700;color:var(--v-verde)!important;text-decoration:underline}
+.leaflet-container{font-family:var(--font-body)}
+.leaflet-popup-content-wrapper{border-radius:14px;box-shadow:0 14px 34px -10px rgba(17,18,15,.35)}
+
+/* =====================================================================
+   Ronda 3
+   ===================================================================== */
+
+/* portada: la foto empieza debajo de la cabecera y se ancla arriba, así la lata entra completa */
+@media (min-width:1100px){
+  .compra--portada .producto-compra__fondo{top:var(--cabecera-h)}
+  .compra--portada .lata-principal{object-position:50% 18%}
+  .compra--portada .producto-compra__fondo.es-recorte .lata-principal{object-position:40% 50%}
+  .compra--portada .producto-compra__badge{top:auto;bottom:22px;left:clamp(20px,4vw,72px);right:auto}
+}
+@media (max-width:1099px){
+  .compra--portada .lata-principal{object-position:35% 22%}
+  .compra--portada .producto-compra__badge{top:auto;bottom:14px;right:14px}
+}
+
+/* cotización de envío */
+.compra--portada .cp__resultado{position:static}
+.cp__resultado:not(.is-ok){font-size:.78rem}
+.cp__resultado.is-ok{display:grid;gap:6px;margin-top:10px;font-weight:400;color:var(--ink)}
+.envio__cabecera{font-size:.72rem;color:var(--v-oliva);font-weight:600}
+.envio__correo{display:inline-block;background:#FFD200;color:#0B2E6B;font-weight:800;font-size:.64rem;letter-spacing:.03em;
+  padding:.15em .55em;border-radius:4px;margin-right:4px;text-transform:uppercase}
+.envio-op{display:flex;align-items:center;gap:10px;padding:8px 12px;border:1.5px solid var(--line);border-radius:12px;
+  background:rgba(255,255,255,.7);cursor:pointer;transition:border-color var(--t-hover) var(--ease),background-color var(--t-hover) var(--ease)}
+.envio-op:hover{border-color:rgba(30,58,31,.45)}
+.envio-op.is-elegido{border-color:var(--cta);background:#fff}
+.envio-op input{accent-color:var(--cta);margin:0;flex:none}
+.envio-op__txt{flex:1;display:flex;flex-direction:column;line-height:1.2}
+.envio-op__txt b{font-size:.8rem}
+.envio-op__txt small{font-size:.7rem;color:var(--muted)}
+.envio-op__precio{font-family:var(--font-display);font-weight:800;font-size:.9rem;color:var(--v-verde)}
+@media (min-width:1100px){
+  .compra--portada .compra__extra{align-items:start}
+  .compra--portada .cp label{display:block}
+  .compra--portada .compra__links{padding-top:26px}
+}
+.carrito-total__aviso{font-size:.74rem;color:var(--muted);margin:0 0 8px}
+.carrito-total__aviso a{color:var(--v-verde);font-weight:700;text-decoration:underline}
+
+/* La fórmula: la lata con más protagonismo */
+@media (min-width:900px){
+  .pagina-formula .portada__grid{grid-template-columns:.9fr 1.15fr}
+  .pagina-formula .hero__visual .ingredientes__stage{max-width:720px}
+}
+.pagina-formula .ingredientes__lata-wrap{height:min(470px,90%)}
+.pagina-formula .ingredientes__disco{width:min(450px,56vw);height:min(450px,56vw);margin:calc(min(450px,56vw)/-2) 0 0 calc(min(450px,56vw)/-2)}
+.pagina-formula .ingredientes__orbita{width:min(540px,66vw);height:min(540px,66vw);margin:calc(min(540px,66vw)/-2) 0 0 calc(min(540px,66vw)/-2)}
+.pagina-formula .ingredientes__lata-wrap img{filter:drop-shadow(0 34px 36px rgba(40,50,20,.26))}
+.pagina-formula .punto{z-index:3}
+@media (max-width:719px){
+  .pagina-formula .ingredientes__lata-wrap{height:min(340px,72%)}
+}
+
+/* Stats: 354 grande, blanco, a la altura de los íconos; etiqueta en una línea */
+.stats .stats__icono--num{border:0;width:auto;height:52px;padding:0 4px}
+.stats .stats__icono--num .stats__num{font-size:2.9rem;line-height:52px;color:#F4EFE4;letter-spacing:-.03em}
+.stats__una-linea{white-space:nowrap}
+
+/* Dónde comprar: zona + tipo */
+.filtros-barra{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:0 0 20px}
+.filtros-barra .filtros{margin:0}
+.zonas{display:inline-flex;padding:4px;border-radius:999px;background:var(--v-blanco);border:1px solid var(--line);flex:none}
+.zona{border:0;background:none;border-radius:999px;padding:.5em 1.2em;font:inherit;font-size:.84rem;font-weight:700;color:var(--v-oliva);cursor:pointer;
+  transition:background-color var(--t-hover) var(--ease),color var(--t-hover) var(--ease)}
+.zona.is-activo{background:var(--v-lima);color:var(--v-verde)}
+.zona:focus-visible,.filtro:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.puntos-lista .punto-venta[hidden]{display:none}
+.puntos-vacio{margin:8px 0 0;padding:18px;border-radius:var(--r-md);background:var(--v-blanco);border:1px dashed var(--line);font-size:.86rem;color:var(--v-oliva)}
+.puntos-vacio[hidden]{display:none}
+.puntos-vacio a{color:var(--v-verde);font-weight:700;text-decoration:underline}
+.mapa__lienzo.leaflet-container{background:#ECE6D8}
+.mapa-etiqueta{pointer-events:none}
+.mapa-etiqueta span{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-family:var(--font-display);font-size:.66rem;
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(64,77,43,.55)}
+.mapa-etiqueta--grande span{font-size:1.05rem;letter-spacing:.2em;color:rgba(64,77,43,.32)}
+.mapa-etiqueta--agua span{font-style:italic;text-transform:none;letter-spacing:.04em;font-size:.9rem;color:#7FA3A0}
+.compra--portada .cp .envio-op{display:flex;margin:0;font-size:inherit;font-weight:400}
+.pagina-formula .titular .hero__line:first-child .hero__line-in{white-space:nowrap}
+@media (min-width:900px){ .pagina-formula .titular{font-size:clamp(2.4rem,4.6vw,3.9rem)} }
+
+/* =====================================================================
+   La fórmula — portada centrada: lata inclinada con limas, círculo lima
+   y rodajas flotando (estilo pieza de lanzamiento)
+   ===================================================================== */
+.pagina-formula .portada{min-height:100svh}
+@media (min-width:900px){
+  .pagina-formula .portada__grid{min-height:100svh;align-items:center;
+    padding-top:calc(var(--cabecera-h) + 20px);padding-bottom:40px;grid-template-columns:minmax(0,.95fr) minmax(0,1.1fr)}
+  .pagina-formula .hero__visual{justify-content:center}
+  .pagina-formula .hero__visual .ingredientes__stage{
+    --st:clamp(380px,calc(100svh - var(--cabecera-h) - 110px),640px);
+    height:var(--st);aspect-ratio:auto;width:100%;max-width:min(720px,calc(var(--st) * 1.3))}
+  .pagina-formula .tocar-aviso{margin-top:14px}
+}
+@media (min-width:900px) and (max-height:760px){ .pagina-formula .hero__scroll{display:none} }
+
+/* lata */
+.pagina-formula .ingredientes__lata-wrap{height:94%;top:50%}
+.pagina-formula .ingredientes__lata-wrap img{aspect-ratio:954/1422;animation-name:flotarLataVm;
+  filter:drop-shadow(0 30px 34px rgba(40,50,20,.28))}
+@keyframes flotarLataVm{0%,100%{transform:translateY(0) rotate(9deg)}50%{transform:translateY(-14px) rotate(10.5deg)}}
+.pagina-formula .ingredientes__sombra{bottom:-1%;width:40%;margin-left:-20%}
+
+/* círculo lima detrás, como en la pieza */
+.pagina-formula .ingredientes__disco{--d:min(78%,calc(var(--st,480px) * .78));width:var(--d);height:auto;aspect-ratio:1;margin:0;
+  left:50%;top:50%;translate:-50% -50%;
+  background:radial-gradient(circle at 42% 38%,#D7E89A 0 30%,#B5CF3A 58%,#A1BC1B 78%,#8CA81A 100%);
+  box-shadow:inset 0 0 0 10px rgba(255,255,255,.18)}
+.pagina-formula .ingredientes__orbita{width:min(92%,calc(var(--st,480px) * .92));height:auto;aspect-ratio:1;margin:0;left:50%;top:50%;translate:-50% -50%}
+.pagina-formula .ingredientes__swoosh{bottom:2%;height:40%;opacity:.9}
+.pagina-formula .ingredientes__fondo{overflow:visible}
+
+/* rodajas de lima flotando */
+.lima-flota{position:absolute;width:auto;max-width:none;pointer-events:none;animation:limaFlota 9s ease-in-out infinite;
+  filter:drop-shadow(0 12px 14px rgba(40,50,20,.22))}
+.lima-flota--1{height:16%;top:4%;left:30%;--r:-35deg;filter:blur(3px);opacity:.85;animation-duration:11s}
+.lima-flota--2{height:22%;top:12%;right:12%;--r:28deg;animation-delay:-2s}
+.lima-flota--3{height:13%;top:44%;left:4%;--r:150deg;filter:blur(4px);opacity:.7;animation-duration:12s;animation-delay:-4s}
+.lima-flota--4{height:20%;bottom:10%;right:16%;--r:-140deg;animation-delay:-6s}
+.lima-flota--5{height:12%;bottom:4%;left:26%;--r:70deg;filter:blur(2.5px);opacity:.85;animation-duration:10s;animation-delay:-3s}
+.lima-flota--6{height:10%;top:40%;right:2%;--r:-80deg;filter:blur(5px);opacity:.6;animation-duration:13s;animation-delay:-7s}
+@keyframes limaFlota{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-16px) rotate(calc(var(--r) + 12deg))}}
+@media (prefers-reduced-motion:reduce){ .lima-flota{animation:none;transform:rotate(var(--r))} }
+
+/* píldoras de beneficios por encima de todo */
+.pagina-formula .punto{z-index:4}
+
+@media (max-width:899px){
+  .pagina-formula .hero__visual .ingredientes__stage{aspect-ratio:1/1.12}
+  .pagina-formula .ingredientes__lata-wrap{height:84%}
+  .pagina-formula .ingredientes__disco{--d:74%}
+  .pagina-formula .ingredientes__orbita{width:90%}
+}
+
+/* =====================================================================
+   Ronda 5
+   ===================================================================== */
+
+/* Insignia "Pack x4": arriba a la derecha de la lata */
+@media (min-width:1100px){
+  .compra--portada .producto-compra__badge{top:calc(var(--cabecera-h) + 36px);bottom:auto;left:calc(36% + 10px);right:auto}
+}
+@media (max-width:1099px){
+  .compra--portada .producto-compra__badge{top:14px;bottom:auto;right:14px;left:auto}
+}
+
+/* Secciones más compactas: entran enteras en pantallas bajas */
+:root{--section-y:clamp(52px,6.5vw,88px)}
+.seccion__cabecera{margin-bottom:clamp(24px,3.5vw,40px)}
+@media (min-width:900px){
+  .seccion__cabecera--doble{max-width:none;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);column-gap:56px;align-items:end}
+  .seccion__cabecera--doble .kicker{grid-column:1}
+  .seccion__cabecera--doble .h2{grid-column:1;margin-bottom:0}
+  .seccion__cabecera--doble .parrafo{grid-column:2;grid-row:1 / span 2;margin:0;align-self:end}
+}
+.beneficio{padding:24px 22px}
+
+/* Íconos: círculo lima con degradé y trazo oscuro */
+.beneficio__icono{width:56px;height:56px;border-radius:18px;color:var(--v-verde);
+  background:linear-gradient(145deg,#E7F0BC,#C9DD6F);box-shadow:inset 0 0 0 1px rgba(255,255,255,.6),0 10px 20px -12px rgba(90,120,48,.7)}
+.beneficio__icono svg{width:28px;height:28px}
+.punto__icono{background:linear-gradient(145deg,#EEF4CF,#CFE07F);color:var(--v-verde)}
+.punto__icono svg{width:22px;height:22px}
+@media (max-width:719px){ .punto__icono svg{width:17px;height:17px} }
+.punto.is-activo .punto__icono,.punto:hover .punto__icono{background:linear-gradient(145deg,#D9EA8E,#A1BC1B)}
+.stats__icono svg{width:26px;height:26px}
+
+/* Ingredientes reales: tarjeta ilustrada de taurina */
+@media (min-width:960px){ .ingredientes-reales__fila{grid-template-columns:repeat(6,1fr)} }
+.ingrediente-foto__ilus{display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;color:var(--v-verde);
+  background:radial-gradient(circle at 35% 30%,#F0F6D2 0,#C9DD6F 55%,#A1BC1B 100%)}
+.ingrediente-foto__ilus svg{width:44%;height:auto;max-height:70%}
+@media (min-width:1100px){ .ingrediente-foto__ilus{aspect-ratio:auto;height:96px} }
+@media (min-width:1100px) and (max-height:720px){ .ingrediente-foto__ilus{height:72px} }
+
+/* Ventana del ingrediente: foto más ancha para que la lata no se corte */
+@media (min-width:720px){ .modal--ingrediente{grid-template-columns:1.2fr 1fr;width:min(900px,94vw);max-width:900px} }
+
+/* Dónde comprar: Google Maps + cartel del local */
+.mapa--puntos{position:relative}
+.mapa__google{width:100%;height:100%;border:0;display:block}
+.mapa-cartel{position:absolute;left:14px;bottom:14px;z-index:500;max-width:min(320px,calc(100% - 28px));display:flex;flex-direction:column;gap:2px;
+  padding:12px 16px;border-radius:14px;background:rgba(251,249,244,.97);box-shadow:0 14px 30px -12px rgba(17,18,15,.4);border:1px solid var(--line)}
+.mapa-cartel:empty{display:none}
+.mapa-cartel__tipo{font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--v-oliva)}
+.mapa-cartel b{font-family:var(--font-display);font-size:.95rem;color:var(--v-verde)}
+.mapa-cartel span:not(.mapa-cartel__tipo){font-size:.76rem;color:var(--muted)}
+.mapa-cartel a{margin-top:4px;font-size:.76rem;font-weight:700;color:var(--v-verde);text-decoration:underline;text-underline-offset:3px}
+.mapa__lienzo--propio{background:#F2EEE4}
+.calle-nombre{pointer-events:none}
+.calle-nombre span{position:absolute;white-space:nowrap;font:600 10.5px/1 var(--font-body);color:#6B6A5E;letter-spacing:.01em;
+  text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 2px #fff}
+.calle-nombre--av span{font-weight:700;font-size:11.5px;color:#4E5440}
+.carrito-total__fila--sub{margin-bottom:8px}
+.carrito-total__fila--desc span:last-child{color:#5A7830;font-weight:700}
+.carrito-total__fila--total{padding-top:10px;margin-top:4px;border-top:1px dashed var(--line);font-size:1.05rem}
+.carrito-total .btn--block{margin-top:6px}
+.carrito-total__seguir{margin-top:12px}
+.carrito-total__fila{gap:14px}
+
+/* ===================== Ronda 7 ===================== */
+/* "Pack x4": a la derecha de la parte de arriba de la lata */
+@media (min-width:1100px){
+  .compra--portada .producto-compra__badge{top:calc(var(--cabecera-h) + 14px);left:calc(42% + 10px);right:auto;bottom:auto}
+}
+/* sin la tarjeta de taurina: vuelven 5 columnas */
+@media (min-width:960px){ .ingredientes-reales__fila{grid-template-columns:repeat(5,1fr)} }
+/* mapa */
+.filtro__punto--dietetica{background:#7FA313}
+.filtro__punto--padel{background:#2F6FB0}
+.filtro__punto--universidad{background:#D9534F}
+.mapa__lienzo--propio.leaflet-container,.mapa__lienzo--propio{background:#F2EFE9}
+.marcador__pin{width:28px;height:28px;border-width:3px}
+.marcador__pin::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#fff}
+.marcador__pin{position:relative}
+.mapa-etiqueta--partido span{font-size:.62rem;color:#7C6E9E;letter-spacing:.1em}
+.mapa-etiqueta--caba span{font-size:.8rem;letter-spacing:.16em;color:rgba(64,77,43,.45)}
+.mapa__sin{padding:24px;color:var(--muted)}
+@media (min-width:1100px){ .compra--portada .producto-compra__badge{top:22px;left:43%} }
+/* franja con 4 sellos */
+.franja li:last-child{grid-column:auto}
+@media (min-width:760px){ .franja__lista{grid-template-columns:repeat(4,auto)} }
+/* franja: sellos con ícono en recuadro lima, estilo de marca */
+.franja{--franja-bg:#1C2E1C}
+.franja li{gap:14px;font-size:.74rem;letter-spacing:.06em}
+.franja__icono{width:48px;height:48px;border-radius:15px;border:1px solid rgba(201,224,127,.35);color:#D4E88A;
+  background:linear-gradient(150deg,rgba(161,188,27,.22),rgba(161,188,27,.06));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 22px -14px rgba(0,0,0,.6);transition:transform .35s var(--ease),background-color .35s var(--ease)}
+.franja__icono svg{width:25px;height:25px}
+.franja li:hover .franja__icono{transform:translateY(-2px);background:linear-gradient(150deg,rgba(161,188,27,.32),rgba(161,188,27,.1))}
+
+/* La fórmula: la lata siempre con su proporción real (954 × 1422), sin estirarse */
+.pagina-formula .ingredientes__lata-wrap{aspect-ratio:954/1422;width:auto}
+.pagina-formula .ingredientes__lata-wrap img{width:100%;height:100%;max-width:none;aspect-ratio:auto;object-fit:contain}

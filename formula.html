@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="es-AR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La fórmula — Vytal</title>
+<meta name="description" content="Qué hay adentro de Vytal: cafeína de origen natural + L-teanina, vitamina B, ginseng. 0 azúcar, 0 calorías. Energía sostenida, sin el bajón.">
+<meta property="og:title" content="La fórmula — Vytal">
+<meta property="og:description" content="Qué hay adentro de Vytal: cafeína de origen natural + L-teanina, vitamina B, ginseng. 0 azúcar, 0 calorías. Energía sostenida, sin el bajón.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/og-imagen.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2311120F'/%3E%3Cpath fill='%23A1BC1B' d='M50,86 C26,74 16,52 21,22 C37,26 47,42 49,60 C50,42 59,28 75,22 C82,50 72,74 50,86 Z'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="img/lata-vytalmas.webp" as="image" fetchpriority="high">
+<link rel="preload" href="fonts/montserrat-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/montserrat-italic-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css?v=23">
+<link rel="stylesheet" href="css/styles.css?v=32">
+<link rel="stylesheet" href="css/tienda.css?v=38">
+<script>document.documentElement.className=document.documentElement.className.replace('no-js','js');</script>
+</head>
+<body class="pagina-interna pagina-formula">
+<!-- ===== INICIO Cabecera ===== -->
+<header class="cabecera" data-nav>
+  <button type="button" class="anuncio" data-abrir-vytalmas>
+    <span><b>5% OFF</b> en tu primera compra con Vytal+</span><span class="anuncio__cta">Sumate →</span>
+  </button>
+  <div class="nav">
+    <a class="nav__logo" href="index.html"><img src="img/logo-negro.png" alt="Vytal" width="90" height="44"></a>
+    <nav aria-label="Principal"><ul class="nav__links"><li><a href="index.html">Tienda</a></li><li><a href="formula.html" aria-current=page>La fórmula</a></li><li><a href="donde.html">Dónde comprar</a></li><li><a href="#" data-abrir-vytalmas>Vytal+</a></li></ul></nav>
+    <div class="nav__acciones">
+    <button type="button" class="nav__cuenta" aria-label="Mi cuenta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    </button>
+    <button type="button" class="nav__carrito" data-abrir-carrito aria-label="Ver carrito">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.5 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+      <span class="cuenta" data-cuenta-carrito hidden>0</span>
+    </button>
+    <button type="button" class="nav__menu-btn" data-abrir-menu aria-label="Abrir menú" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    </div>
+  </div>
+</header>
+<div class="menu-movil" data-menu-movil>
+  <ul><li><a href="index.html" data-cerrar-menu>Tienda</a></li><li><a href="formula.html" data-cerrar-menu>La fórmula</a></li><li><a href="donde.html" data-cerrar-menu>Dónde comprar</a></li><li><a href="contacto.html" data-cerrar-menu>Contacto</a></li><li><a href="#" data-abrir-vytalmas data-cerrar-menu>Vytal+</a></li></ul>
+</div>
+<!-- ===== FIN Cabecera ===== -->
+
+<div class="modal-overlay" data-modal-vytalmas data-lenis-prevent>
+  <div class="modal modal--vytalmas" data-modal-caja>
+    <svg class="vm__ondas" viewBox="0 0 1207 754" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="vm-suave" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="3"/></filter>
+        <linearGradient id="vm-g1" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#DCE4B6"/><stop offset=".6" stop-color="#D6E1A4"/><stop offset="1" stop-color="#CBDA8E"/></linearGradient>
+        <linearGradient id="vm-g2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#E4E9C6"/><stop offset="1" stop-color="#CFDD97"/></linearGradient>
+      </defs>
+      <g filter="url(#vm-suave)">
+        <path class="vm__onda" d="M0 0 H150 C110 30 50 70 0 100 Z" fill="#DCE5B3"/>
+        <path class="vm__onda" d="M0 150 C90 95 200 40 300 0 H625 C470 90 230 220 0 340 Z" fill="url(#vm-g1)"/>
+        <path class="vm__onda" d="M0 375 C80 470 160 610 250 754 H0 Z" fill="#DDE5B8"/>
+        <path class="vm__onda" d="M700 754 C860 640 1040 470 1207 285 V545 C1100 640 990 700 900 754 Z" fill="url(#vm-g2)"/>
+        <path class="vm__onda" d="M985 754 C1060 705 1140 660 1207 625 V754 Z" fill="#D3DF9F"/>
+      </g>
+    </svg>
+    <button type="button" class="modal__cerrar" data-cerrar-modal aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 3l18 18M21 3L3 21"/></svg>
+    </button>
+    <img class="vm__lata" src="img/lata-vytalmas.webp" width="954" height="1422" alt="Lata de Vytal Lima Limón entre limas, hojas y un splash de agua">
+    <div class="vm__contenido">
+      <p class="vm__logo-fila"><img class="vm__logo" src="img/logo-negro-recorte.png" alt="Vytal" width="837" height="354"><span class="vm__mas" aria-label="más">+</span></p>
+      <h3 class="vm__titulo"><span class="vm__titulo-1">Completá tus datos</span> <em class="vm__titulo-2">y formá parte de <strong>Vytal+</strong></em></h3>
+      <p class="vm__intro">Recibí un <b class="vm__resaltado">5% de descuento</b> en tu primera compra, novedades, beneficios exclusivos, contenido de bienestar y mucho más.</p>
+      <div class="vm__cuerpo">
+        <ul class="vm__beneficios">
+          <li><span class="vm__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8" width="17" height="4" rx=".8"/><path d="M5 12v8h14v-8M12 8v12"/><path d="M12 8c-1-2.6-2.4-4-4.2-4C6.6 4 6 4.8 6 5.7 6 7 7.2 8 9 8"/><path d="M12 8c1-2.6 2.4-4 4.2-4 1.2 0 1.8.8 1.8 1.7C18 7 16.8 8 15 8"/></svg></span><span>Promociones<br>exclusivas</span></li>
+          <li><span class="vm__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></svg></span><span>Novedades<br>y lanzamientos</span></li>
+          <li><span class="vm__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="3.4" height="12" rx="1"/><rect x="15.6" y="6" width="3.4" height="12" rx="1"/><rect x="2.2" y="8.6" width="2.8" height="6.8" rx=".8"/><rect x="19" y="8.6" width="2.8" height="6.8" rx=".8"/><path d="M8.4 12h7.2"/></svg></span><span>Contenido de<br>bienestar y rendimiento</span></li>
+          <li><span class="vm__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5h18v4a2.5 2.5 0 0 0 0 5v4H3v-4a2.5 2.5 0 0 0 0-5z"/><path d="M9.3 15l5.4-6"/><circle cx="9.6" cy="9.6" r="1.1"/><circle cx="14.4" cy="14.4" r="1.1"/></svg></span><span>Experiencias<br>y beneficios especiales</span></li>
+        </ul>
+        <form class="modal__form vm__form" data-form-vytalmas novalidate>
+          <label class="visually-hidden" for="vm-nombre">Tu nombre</label>
+          <span class="vm__campo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c0-4 3.4-6.8 7.5-6.8s7.5 2.8 7.5 6.8"/></svg>
+            <input id="vm-nombre" name="nombre" type="text" placeholder="Tu nombre" autocomplete="name" required>
+          </span>
+          <label class="visually-hidden" for="vm-email">Tu email</label>
+          <span class="vm__campo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>
+            <input id="vm-email" name="email" type="email" placeholder="Tu email" autocomplete="email" required>
+          </span>
+          <button type="submit" class="vm__boton">Quiero ser parte de Vytal+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+          <label class="vm__check"><input type="checkbox" required> <span>Acepto recibir novedades, promociones y contenido de Vytal+ por email.</span></label>
+        </form>
+      </div>
+      <div class="modal__exito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12.5l2.5 2.5L16 9"/></svg>
+        <h3>¡Listo, ya sos parte de Vytal+!</h3>
+        <p>En breve vas a recibir tu cupón de 5% por email.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay modal-overlay--ingrediente" data-modal-ingrediente>
+  <div class="modal modal--ingrediente">
+    <button type="button" class="modal__cerrar" data-cerrar-modal-ingrediente aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+    <div class="modal-ingrediente__foto">
+      <img data-mi-foto src="" alt="">
+      <span class="modal-ingrediente__num" data-mi-num></span>
+      <span class="modal-ingrediente__momento-sobre-foto" data-mi-momento-foto></span>
+    </div>
+    <div class="modal-ingrediente__texto">
+      <p class="modal-ingrediente__contador" data-mi-contador></p>
+      <h3 data-mi-titulo></h3>
+      <p class="modal-ingrediente__tagline" data-mi-tagline></p>
+      <p class="modal-ingrediente__desc" data-mi-desc></p>
+      <p class="modal-ingrediente__momento-label">Momento ideal</p>
+      <span class="modal-ingrediente__momento-pill" data-mi-momento></span>
+      <div class="modal-ingrediente__nav">
+        <button type="button" class="btn btn--outline-dark" data-mi-anterior>Anterior</button>
+        <button type="button" class="btn btn--dark" data-mi-siguiente>Siguiente</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" data-modal-resena>
+  <div class="modal modal--resena" data-resena-caja>
+    <button type="button" class="modal__cerrar" data-cerrar-resena aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+    <form class="resena-form" data-form-resena novalidate>
+      <h3>Dejá tu reseña</h3>
+      <p class="resena-form__intro">Contanos qué te pareció Vytal Lima Limón.</p>
+      <fieldset class="resena-form__puntaje">
+        <legend>Tu puntaje</legend>
+        <div class="resena-form__estrellas"><input type="radio" name="puntaje" id="rs-5" value="5"><label for="rs-5" aria-label="5 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg></label><input type="radio" name="puntaje" id="rs-4" value="4"><label for="rs-4" aria-label="4 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg></label><input type="radio" name="puntaje" id="rs-3" value="3"><label for="rs-3" aria-label="3 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg></label><input type="radio" name="puntaje" id="rs-2" value="2"><label for="rs-2" aria-label="2 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg></label><input type="radio" name="puntaje" id="rs-1" value="1" required><label for="rs-1" aria-label="1 estrella"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg></label></div>
+        <span class="resena-form__error" data-resena-error hidden>Elegí cuántas estrellas le das.</span>
+      </fieldset>
+      <label for="rs-nombre">Tu nombre</label>
+      <input class="campo" id="rs-nombre" name="nombre" type="text" autocomplete="given-name" required>
+      <label for="rs-comentario">Tu comentario</label>
+      <textarea class="campo" id="rs-comentario" name="comentario" rows="4" required></textarea>
+      <button type="submit" class="btn btn--primary btn--block">Enviar reseña</button>
+    </form>
+    <div class="resena-exito" data-resena-exito hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12.5l2.5 2.5L16 9"/></svg>
+      <h3>¡Gracias por tu reseña!</h3>
+      <p>Tu opinión nos ayuda a mejorar.</p>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<section class="portada" id="inicio" data-portada>
+  <div class="portada__fondo" aria-hidden="true"></div>
+  <svg class="camino" aria-hidden="true" focusable="false"><path/></svg>
+
+  <div class="portada__grid">
+    <div class="portada__texto">
+      <p class="eyebrow" data-pieza>Lima limón · 354 ml</p>
+      <h1 class="titular">
+        <span class="hero__line"><span class="hero__line-in">Energía + Foco<span class="punto-lima">.</span></span></span>
+        <span class="hero__line"><span class="hero__line-in acento">Tu Mejor Versión</span></span>
+      </h1>
+      <p class="hero__lead">¿Escaneaste la lata? Descubrí qué hay adentro y por qué funciona.</p>
+      <p class="hero__actions">
+        <a class="btn btn--primary" href="index.html#comprar" data-camino-hasta>Comprar ahora</a>
+        <a class="btn btn--ghost" href="#momentos">Ver los momentos</a>
+      </p>
+    </div>
+    <div class="hero__visual" id="producto">
+      <div class="ingredientes__stage" data-hero-img data-camino-desde>
+        <div class="ingredientes__fondo" aria-hidden="true">
+                    <div class="ingredientes__disco"></div><img class="lima-flota lima-flota--1" src="img/lima-flotante.webp" width="211" height="326" alt="" aria-hidden="true"><img class="lima-flota lima-flota--2" src="img/lima-flotante.webp" width="211" height="326" alt="" aria-hidden="true"><img class="lima-flota lima-flota--3" src="img/lima-flotante.webp" width="211" height="326" alt="" aria-hidden="true"><img class="lima-flota lima-flota--4" src="img/lima-flotante.webp" width="211" height="326" alt="" aria-hidden="true"><img class="lima-flota lima-flota--5" src="img/lima-flotante.webp" width="211" height="326" alt="" aria-hidden="true"><img class="lima-flota lima-flota--6" src="img/lima-flotante.webp" width="211" height="326" alt="" aria-hidden="true">
+          <svg class="ingredientes__orbita" viewBox="0 0 340 340" fill="none"><circle cx="170" cy="170" r="168" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 7"/><circle cx="170" cy="2" r="4" fill="var(--brand)"/></svg>
+          <svg class="ingredientes__swoosh" viewBox="0 0 1440 420" preserveAspectRatio="none" fill="none"><path d="M-40 380 C 400 370, 900 250, 1480 30" stroke="var(--brand)" stroke-width="40" stroke-linecap="round" opacity=".45"/><path d="M-40 415 C 480 405, 980 300, 1480 110" stroke="var(--brand-on-dark)" stroke-width="12" stroke-linecap="round" opacity=".7"/></svg>
+        </div>
+        <div class="ingredientes__lata-wrap">
+          <img src="img/lata-vytalmas.webp" width="954" height="1422" alt="Lata de Vytal Lima Limón entre limas, hojas y un splash de agua" data-pin-lata>
+          <span class="ingredientes__sombra" aria-hidden="true"></span>
+        </div>
+        <button type="button" class="punto punto--tl" data-ingrediente="cafeina" aria-pressed="false">
+          <span class="punto__textos"><b>Cafeína + L‑teanina</b><small>01 · Ver beneficio</small></span>
+          <span class="punto__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5C4.5 11 10 5 19.5 4.5 19 14 13 19.5 4.5 19.5z"/><path d="M4.5 19.5c3.2-3.6 6.2-6.4 10-9"/><path d="M12.8 7.6l-1.9 3.1h2.5l-1.9 3.1" stroke-width="1.5"/></svg></span>
+        </button>
+        <button type="button" class="punto punto--tr" data-ingrediente="vitaminab" aria-pressed="false">
+          <span class="punto__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="8.6" width="15" height="6.8" rx="3.4" transform="rotate(-38 10.3 12)"/><path d="M8 9.4l4.6 5.6"/><path d="M18.5 3.5v3M17 5h3"/><path d="M20 10.5v2M19 11.5h2"/></svg></span>
+          <span class="punto__textos"><b>Vitamina B</b><small>02 · Ver beneficio</small></span>
+        </button>
+        <button type="button" class="punto punto--bl" data-ingrediente="ginseng" aria-pressed="false">
+          <span class="punto__textos"><b>Ginseng</b><small>03 · Ver beneficio</small></span>
+          <span class="punto__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7.5V3"/><path d="M12 5c-1.3-1.6-3-2.2-4.6-2 .2 1.7 1.7 3 4.6 3"/><path d="M12 5c1.3-1.6 3-2.2 4.6-2-.2 1.7-1.7 3-4.6 3"/><path d="M12 7.5c-2.6 0-3.8 2-3.3 4.6.4 2.1 1.5 3.3 1.1 5.6-.3 1.5-1.2 2.6-2 3.3"/><path d="M12 7.5c2.6 0 3.8 2 3.3 4.6-.4 2.1-1.3 3.5-.9 5.8.2 1.2.9 2.2 1.7 2.9"/><path d="M11.2 15.5c-1 .4-2.3.3-3.4-.4M13.1 13.3c.9.5 2 .6 3.1.1"/></svg></span>
+        </button>
+        <button type="button" class="punto punto--br" data-ingrediente="azucar" aria-pressed="false">
+          <span class="punto__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l6.5 3.6v7.6L12 18.8l-6.5-3.6V7.6z"/><path d="M5.5 7.6L12 11.2l6.5-3.6M12 11.2v7.6"/><path d="M3.5 20.5l17-17"/></svg></span>
+          <span class="punto__textos"><b>0 azúcar, 0 calorías</b><small>04 · Ver beneficio</small></span>
+        </button>
+      </div>
+      <p class="tocar-aviso">Tocá un ingrediente</p>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#momentos" aria-hidden="true" tabindex="-1" data-pieza>
+    Descubrí más
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<section class="seccion seccion--surface" id="momentos">
+  <div class="envoltura">
+    <div class="seccion__cabecera momentos__cabecera">
+      <div>
+        <p class="kicker" data-reveal>Momentos Vytal</p>
+        <h2 class="h2" data-reveal>Para cuando <span class="acento">necesitás más.</span></h2>
+      </div>
+      <p class="parrafo momentos__lede" data-reveal>Cuatro momentos, un mismo objetivo:<br><u>energía, concentración y foco.</u></p>
+    </div>
+    <div class="momentos__lista" data-reveal>
+      <button type="button" class="momento" data-ingrediente="cafeina">
+        <span class="momento__foto"><img src="img/foto-estudio.jpg" width="760" height="502" alt="" loading="lazy"><span class="momento__num">01</span></span>
+        <h3>Maratón de estudio</h3>
+        <span class="con">Con cafeína + L‑teanina · Ver beneficio</span>
+      </button>
+      <button type="button" class="momento" data-ingrediente="vitaminab">
+        <span class="momento__foto"><img src="img/foto-trabajo.jpg" width="760" height="502" alt="" loading="lazy"><span class="momento__num">02</span></span>
+        <h3>Jornada larga de trabajo</h3>
+        <span class="con">Con vitamina B · Ver beneficio</span>
+      </button>
+      <button type="button" class="momento" data-ingrediente="ginseng">
+        <span class="momento__foto"><img src="img/foto-tarde.jpg" width="760" height="502" alt="" loading="lazy"><span class="momento__num">03</span></span>
+        <h3>Retomar el foco</h3>
+        <span class="con">Con ginseng · Ver beneficio</span>
+      </button>
+      <button type="button" class="momento" data-ingrediente="azucar">
+        <span class="momento__foto"><img src="img/foto-entreno.jpg" width="760" height="502" alt="" loading="lazy"><span class="momento__num">04</span></span>
+        <h3>Después de entrenar</h3>
+        <span class="con">Con 0 azúcar y 0 calorías · Ver beneficio</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="seccion seccion--cream" id="beneficios">
+  <div class="envoltura">
+    <div class="seccion__cabecera seccion__cabecera--doble">
+      <p class="kicker" data-reveal>Concentración + Foco</p>
+      <h2 class="h2" data-reveal>Energía pensada <span class="acento">para rendir</span>, no para después lamentarte</h2>
+      <p class="parrafo" data-reveal>La mayoría de quienes toman energizantes sienten ese "subidón y bajón" después. Vytal está formulado para sostener tu energía, no para dispararla y dejarte peor.</p>
+    </div>
+    <div class="beneficios__lista" data-reveal>
+      <div class="beneficio">
+        <span class="beneficio__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5v-7.5"/><path d="M12 13c0-4.2-3.1-6.8-7.3-6.8 0 4.2 3.1 6.8 7.3 6.8z"/><path d="M12 10.8c0-3.7 2.6-6.3 6.8-6.3 0 3.7-2.6 6.3-6.8 6.3z"/><path d="M6.5 20.5h11"/></svg></span>
+        <h3>Origen natural</h3>
+        <p>Cafeína del extracto de té verde, en vez de la cafeína sintética de laboratorio que usa la mayoría de la categoría.</p>
+      </div>
+      <div class="beneficio">
+        <span class="beneficio__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.5c2.2-5.8 4.8-8.5 8.5-8.5H20"/><path d="M17.5 6l3 3-3 3"/><path d="M3 20.5h18" stroke-dasharray="1.5 3"/></svg></span>
+        <h3>Sin la bajada</h3>
+        <p>La L‑teanina se incorpora para moderar el nerviosismo asociado a la cafeína, y la taurina acompaña el aporte energético.</p>
+      </div>
+      <div class="beneficio">
+        <span class="beneficio__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l6.5 3.6v7.6L12 18.8l-6.5-3.6V7.6z"/><path d="M5.5 7.6L12 11.2l6.5-3.6M12 11.2v7.6"/><path d="M3.5 20.5l17-17"/></svg></span>
+        <h3>0 azúcar, 0 calorías</h3>
+        <p>Toda la energía, sin el azúcar que preocupa a 6 de cada 10 personas que evitan la categoría.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ingredientes-reales">
+  <div class="ingredientes-reales__texto" data-reveal>
+    <h2 class="h2">Ingredientes reales. <span class="acento">Beneficios reales.</span></h2>
+    <p>Combinamos el poder de la naturaleza con la ciencia de la formulación para crearte una bebida que hace más por vos.</p>
+    <a href="index.html#comprar" class="ingredientes-reales__link">Comprar Vytal <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="ingredientes-reales__fila" data-reveal>
+    <figure class="ingrediente-foto">
+      <img src="img/ing-limalimon.jpg" alt="Lima limón fresca, el sabor de Vytal" loading="lazy">
+      <figcaption><b>Lima Limón</b><span>Sabor natural y refrescante.</span></figcaption>
+    </figure>
+    <figure class="ingrediente-foto">
+      <img src="img/ing-teverde.jpg" alt="Hoja de té verde, fuente de la cafeína natural de Vytal" loading="lazy">
+      <figcaption><b>Té verde</b><span>Fuente de la cafeína de origen natural: aporta la energía.</span></figcaption>
+    </figure>
+    <figure class="ingrediente-foto">
+      <img src="img/ing-vitaminab.jpg" alt="Vitamina B" loading="lazy">
+      <figcaption><b>Vitamina B</b><span>Orientada a reducir el cansancio.</span></figcaption>
+    </figure>
+    <figure class="ingrediente-foto">
+      <img src="img/ing-lteanina.jpg" alt="L-Teanina" loading="lazy">
+      <figcaption><b>L‑Teanina</b><span>Modera el nerviosismo asociado a la cafeína.</span></figcaption>
+    </figure>
+    <figure class="ingrediente-foto">
+      <img src="img/ing-ginseng.jpg" alt="Raíz de ginseng" loading="lazy">
+      <figcaption><b>Ginseng</b><span>Orientado a la concentración.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="stats" id="stats">
+  <div class="stats__fila">
+    <div class="stats__cta">
+      <h2 class="h2 stats__titulo">¿Te quedaste<br><span class="acento">con ganas de otra?</span></h2>
+      <p class="stats__cta-acciones">
+        <a class="btn btn--primary" href="index.html#comprar">Comprala online →</a>
+        <a class="stats__social" href="donde.html">Dónde conseguirla</a>
+        <a class="stats__social" href="https://www.instagram.com/vytal.arg" target="_blank" rel="noopener">Seguinos en @vytal.arg</a>
+      </p>
+    </div>
+    <div class="stats__badges">
+      <div class="stats__badge">
+        <span class="stats__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5v-7.5"/><path d="M12 13c0-4.2-3.1-6.8-7.3-6.8 0 4.2 3.1 6.8 7.3 6.8z"/><path d="M12 10.8c0-3.7 2.6-6.3 6.8-6.3 0 3.7-2.6 6.3-6.8 6.3z"/><path d="M6.5 20.5h11"/></svg></span>
+        <b>Cafeína de<br>origen natural</b>
+      </div>
+      <div class="stats__badge">
+        <span class="stats__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="8.6" width="15" height="6.8" rx="3.4" transform="rotate(-38 10.3 12)"/><path d="M8 9.4l4.6 5.6"/><path d="M18.5 3.5v3M17 5h3"/><path d="M20 10.5v2M19 11.5h2"/></svg></span>
+        <b>Vitamina B</b>
+      </div>
+      <div class="stats__badge">
+        <span class="stats__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l6.5 3.6v7.6L12 18.8l-6.5-3.6V7.6z"/><path d="M5.5 7.6L12 11.2l6.5-3.6M12 11.2v7.6"/><path d="M3.5 20.5l17-17"/></svg></span>
+        <b>Sin azúcar</b>
+      </div>
+      <div class="stats__badge">
+        <span class="stats__icono stats__icono--num"><span class="stats__num">354</span></span>
+        <b class="stats__una-linea">ml por lata</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion seccion--surface resena-cta" id="resenas">
+  <div class="envoltura">
+    <p class="kicker" data-reveal>¿Ya la probaste?</p>
+    <h2 class="h2" data-reveal>Contanos <span class="acento">qué te pareció</span></h2>
+    <div class="resenas resenas--centro" data-reveal>
+      <div class="resenas__estrellas"><button type="button" class="resenas__estrella" data-resena-estrella="1" aria-label="Calificar con 1 estrella"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg></button><button type="button" class="resenas__estrella" data-resena-estrella="2" aria-label="Calificar con 2 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg></button><button type="button" class="resenas__estrella" data-resena-estrella="3" aria-label="Calificar con 3 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg></button><button type="button" class="resenas__estrella" data-resena-estrella="4" aria-label="Calificar con 4 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg></button><button type="button" class="resenas__estrella" data-resena-estrella="5" aria-label="Calificar con 5 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg></button></div>
+      <button type="button" class="resenas__cta" data-abrir-resena>Dejá tu reseña</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== INICIO Carrito ===== -->
+<div class="scrim" data-scrim></div>
+<aside class="carrito-drawer" data-carrito aria-hidden="true" aria-label="Carrito">
+  <div class="carrito-drawer__cabecera">
+    <h3>Tu carrito</h3>
+    <button type="button" class="modal__cerrar" data-cerrar-carrito aria-label="Cerrar carrito" style="position:static">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+  </div>
+  <div class="carrito-items" data-carrito-items>
+    <p class="carrito-vacio">Todavía no agregaste nada.</p>
+  </div>
+  <div class="carrito-total">
+    <div class="carrito-total__fila carrito-total__fila--sub"><span>Subtotal</span><span data-carrito-subtotal>$0</span></div>
+    <div class="carrito-total__fila carrito-total__fila--sub carrito-total__fila--desc"><span>Descuento Vytal+ (−5%)</span><span data-carrito-descuento>−$0</span></div>
+    <div class="carrito-total__fila carrito-total__fila--sub" data-carrito-envio hidden><span data-carrito-envio-label>Envío</span><span data-carrito-envio-precio>$0</span></div>
+    <p class="carrito-total__aviso" data-carrito-envio-aviso hidden>Envío: calculalo con tu código postal en la <a href="index.html#comprar" data-cerrar-carrito>página del producto</a>.</p>
+    <div class="carrito-total__fila carrito-total__fila--total"><span>Total</span><span data-carrito-total>$0</span></div>
+    <a class="btn btn--primary btn--block" href="#" data-finalizar target="_blank" rel="noopener">Finalizar compra</a>
+    <a class="carrito-total__seguir" href="index.html#comprar" data-cerrar-carrito>Seguir comprando</a>
+  </div>
+</aside>
+<!-- ===== FIN Carrito ===== -->
+
+<!-- ===== INICIO Footer ===== -->
+<footer class="pie">
+  <div class="pie__top">
+    <div class="pie__marca">
+      <img src="img/logo-negro.png" alt="Vytal" width="90" height="44">
+      <span class="pie__tagline">Energía sostenida</span>
+      <p>Todo lo necesario para alcanzar tu mejor versión.</p>
+    </div>
+    <div>
+      <h5>Tienda</h5>
+      <ul>
+        <li><a href="index.html#comprar">Comprar Vytal</a></li>
+        <li><a href="formula.html">La fórmula</a></li>
+        <li><a href="donde.html">Dónde comprar</a></li>
+        <li><a href="index.html#faq">Preguntas frecuentes</a></li>
+        <li><a href="#" data-abrir-vytalmas>Vytal+</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Seguinos</h5>
+      <ul>
+        <li><a href="https://www.instagram.com/vytal.arg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1"/></svg>Instagram</a></li>
+        <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5c.4 0 .8.06 1.2.17V8c-.4-.1-.8-.15-1.2-.15A6.15 6.15 0 0 0 4.35 14c0 3.4 2.76 6.15 6.15 6.15S16.65 17.4 16.65 14V8.8a7.4 7.4 0 0 0 4 1.2V6.9a4.4 4.4 0 0 1-2.8-1 4.4 4.4 0 0 1-1.2-2.9H14z"/></svg>TikTok</a></li>
+        <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="5.5" width="19" height="13" rx="3"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg>YouTube</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Ayuda</h5>
+      <ul>
+        <li><a href="contacto.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg>Contacto</a></li>
+        <li><a href="https://wa.me/5491100000000?text=Hola%2C%20quiero%20comprar%20Vytal%20Lima%20Lim%C3%B3n" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px" aria-hidden="true"><path d="M12 2.2a9.7 9.7 0 0 0-8.4 14.6L2.3 21.8l5.1-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.3z"/></svg>WhatsApp</a></li>
+        <li><a href="mailto:info@vytal.com.ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@vytal.com.ar</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg>Buenos Aires, Argentina</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pie__bottom">
+    <span>© 2026 Vytal. Todos los derechos reservados.</span>
+    <span>Industria Argentina</span>
+  </div>
+</footer>
+<a class="wa-flotante" href="https://wa.me/5491100000000?text=Hola%2C%20quiero%20comprar%20Vytal%20Lima%20Lim%C3%B3n" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2a9.7 9.7 0 0 0-8.4 14.6L2.3 21.8l5.1-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.3z"/></svg></a>
+<!-- ===== FIN Footer ===== -->
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/SplitText.min.js" defer></script>
+<script src="vendor/lenis.min.js" defer></script>
+<script src="js/main.js?v=38" defer></script>
+</body>
+</html>
